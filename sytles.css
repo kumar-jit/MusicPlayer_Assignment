@@ -1,0 +1,493 @@
+html {
+  --header-height: 8vh;
+  --full-width: 100vw;
+  --container-margin-top: 5vh;
+  --container-height: calc(
+    98vh - var(--header-height) - var(--container-margin-top)
+  );
+  font-family: "Poppins", sans-serif;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Background Colors */
+  --primary-bg: #0a0f25; /* Deep Blue */
+  --secondary-bg: #151d3b; /* Dark Gray */
+  --accent-bg: #101b41; /* Medium Dark Blue */
+  --other-bg: #0a132b; /* Navy Blue */
+
+  /* Text Colors */
+  --primary-text: #eaeaea; /* Light Gray */
+  --secondary-text: #a0a8c3; /* Soft Gray */
+  --accent-text: #8ab4f8; /* Light Blue */
+  --other-text: #ffffff; /* White */
+
+  /* Shadow Colors */
+  --primary-shadow: #090e2270; /* Dark Shadow */
+  --secondary-shadow: rgba(0, 0, 0, 0.3); /* Medium Shadow */
+  --accent-shadow: #1623527e; /* Light Shadow */
+  --other-shadow: rgba(18, 104, 184, 0.712); /* Darker Shadow */
+
+  /* Highlight Colors */
+  --primary-highlight: #8ab4f8; /* Light Blue */
+  --secondary-highlight: #62a9e1; /* Cyan */
+  --accent-highlight: #e57373; /* Soft Red */
+  --other-highlight: #ffb74d; /* Orange */
+
+  /* Button Colors */
+  --primary-button-bg: #62a9e1; /* Cyan */
+  --primary-button-text: #000000; /* Black */
+  --secondary-button-bg: #8ab4f8; /* Light Blue */
+  --secondary-button-text: #ffffff; /* White */
+  --accent-button-bg: #e57373; /* Soft Red */
+  --accent-button-text: #ffffff; /* White */
+  --other-button-bg: #ffb74d; /* Orange */
+  --other-button-text: #000000; /* Black */
+  --cus-button-highlight1 : #e57373;
+  --cus-button-bg1 : #ffb74d;
+  /* Border Colors */
+  --primary-border: #1a2238; /* Dark Blue */
+  --secondary-border: #2c3e50; /* Dark Gray */
+  --accent-border: #8ab4f8; /* Light Blue */
+  --other-border: #e57373; /* Soft Red */
+
+  --other-color : rgba(177, 176, 176, 0.342);
+}
+
+.light-theme {
+  /* Background Colors */
+  --primary-bg: #6bb8de; /* Base Blue */
+  --secondary-bg: #e3f2fd; /* Light Sky Blue */
+  --accent-bg: #bbdefb; /* Soft Blue */
+  --other-bg: #ffcc80; /* Light Orange */
+
+  /* Text Colors */
+  --primary-text: #0a0f25; /* Deep Blue */
+  --secondary-text: #1e2746; /* Dark Blue */
+  --accent-text: #ffffff; /* White */
+  --other-text: #3b5998; /* Soft Blue */
+
+  /* Shadow Colors */
+  --primary-shadow: rgba(107, 184, 222, 0.4); /* Light Blue Shadow */
+  --secondary-shadow: rgba(0, 0, 0, 0.2); /* Medium Shadow */
+  --accent-shadow: rgba(107, 184, 222, 0.3); /* Soft Blue Shadow */
+  --other-shadow: rgba(0, 0, 0, 0.1); /* Light Shadow */
+
+  /* Highlight Colors */
+  --primary-highlight: #6bb8de; /* Base Blue */
+  --secondary-highlight: #8ab4f8; /* Light Blue */
+  --accent-highlight: #ffb74d; /* Orange */
+  --other-highlight: #ff7043; /* Deep Orange */
+
+  /* Button Colors */
+  --primary-button-bg: #6bb8de; /* Base Blue */
+  --primary-button-text: #ffffff; /* White */
+  --secondary-button-bg: #ffcc80; /* Light Orange */
+  --secondary-button-text: #000000; /* Black */
+  --accent-button-bg: #ff7043; /* Deep Orange */
+  --accent-button-text: #ffffff; /* White */
+  --other-button-bg: #8ab4f8; /* Light Blue */
+  --other-button-text: #000000; /* Black */
+  --cus-button-highlight1 : #8ab4f8;
+  --cus-button-bg1 : #ffb74d;
+  /* Border Colors */
+  --primary-border: #6bb8de; /* Base Blue */
+  --secondary-border: #bbdefb; /* Soft Blue */
+  --accent-border: #ffcc80; /* Light Orange */
+  --other-border: #ff7043; /* Deep Orange */
+
+  --other-color : rgba(5, 5, 5, 0.349);
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: var(--secondary-bg);
+  color: var(--primary-text);
+  width: var(--full-width);
+  transition: all 0.4s ease;
+}
+body > * {
+  transition: color 0.4s ease;
+}
+
+h1,
+h2 {
+  margin: 0.5rem;
+}
+/* -------------------------------------------------------------------------- */
+/*                         Toggole theme button style                         */
+/* -------------------------------------------------------------------------- */
+#checkBoxInput[type="checkbox"] {
+  display: none;
+}
+
+.checkBoxToggoleLabel {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  display: block;
+  background: #e9e8e8;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 1px solid var(--primary-highlight);
+}
+
+.checkBoxToggoleLabel::after {
+  content: "";
+  width: 23px;
+  height: 23px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: rgb(248, 147, 31);
+  transform: translate(20%, 10%);
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+#checkBoxInput:checked + .checkBoxToggoleLabel::after {
+  transform: translate(120%, 10%);
+  background: rgba(153, 153, 153, 0.719);
+}
+
+#checkBoxInput:checked + .checkBoxToggoleLabel {
+  background-image: linear-gradient(
+    to left,
+    var(--primary-bg),
+    var(--other-bg)
+  );
+}
+
+/*--------------------------------------------- END --------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/*                                   Navbar                                   */
+/* -------------------------------------------------------------------------- */
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: var(--header-height);
+  padding: 20px;
+  background-color: var(--primary-bg);
+  box-shadow: 0px 0px 40px 15px var(--accent-shadow);
+  box-sizing: border-box;
+}
+
+.head .headTitle {
+  font-size: 2rem;
+  box-sizing: border-box;
+}
+
+/*--------------------------------------------- END --------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/*                                  All music                                 */
+/* -------------------------------------------------------------------------- */
+
+.all-songs {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  position: relative;
+}
+
+.headContainer-AllSong {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 5px;
+}
+.searchBar {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  /* align-items: center; */
+}
+
+.titleContainer-allSong {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.filterSong > label {
+  margin-right: 0.4rem;
+}
+#genreFilter {
+  height: 1.8rem;
+  padding: 0.2rem;
+}
+#songsList {
+}
+.songListContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  width: 100%;
+  position: relative;
+}
+.songListContainer button {
+  position: relative;
+  border: none;
+  border-radius: 0.3rem;
+  width: 100%;
+  padding: 0.7rem 0.5rem;
+  text-align: start;
+  margin-bottom: 0.5rem;
+  background-color: var(--cus-button-bg1);
+  transition: all 300ms ease;
+  cursor: pointer;
+}
+
+.songListContainer button:hover {
+  background-color: var(--cus-button-highlight1);
+}
+
+/*--------------------------------------------- END --------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/*                                  Song Card                                 */
+/* -------------------------------------------------------------------------- */
+#noSong {
+  text-align: center;
+  color: var(--other-color);
+}
+
+#currentSong {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.songImageCard {
+  padding: 2rem 0.5rem 1.5rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent-bg);
+  box-sizing: border-box;
+}
+.songImgContainer {
+  width: 85%;
+  height: 85%;
+  max-width: 20rem;
+}
+.SongTitleContainer {
+  width: 85%;
+  align-items: start;
+  max-width: 20rem;
+}
+#songTitle {
+  font-size: 1.5rem;
+  font-weight: 800px;
+  display: block;
+  max-width: 20rem;
+}
+#songSubtitle {
+  font-size: 1rem;
+  font-weight: 800px;
+  display: block;
+}
+#songImg {
+  height: 100%;
+  width: 100%;
+}
+#audio {
+  width: 80%; /* Full width */
+  height: 40px; /* Fixed height */
+  margin-top: 0.5rem;
+}
+audio::-webkit-media-controls-panel {
+  background-color: var(--accent-highlight);
+}
+.controls {
+  width: 85%;
+  display: flex;
+  justify-content: space-around;
+  align-items: space-around;
+  margin-top: 2rem;
+  /* max-width: 15rem; */
+}
+.controls > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  background-color: var(--primary-button-bg);
+  border: none;
+  transition: all 300ms ease-in-out;
+}
+.controls > button:hover:enabled {
+  box-shadow: 0px 0px 5px 3px var(--other-shadow);
+  color: var(--primary-text);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                         Current Playlist Container                         */
+/* -------------------------------------------------------------------------- */
+.allPlaylistContainer {
+  width: 100%;
+  height: 49%;
+  overflow: hidden;
+  padding: 0rem 0.5rem 0.5rem 0.5rem;
+  position: relative;
+  background-color: var(--accent-bg);
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+.currentPlaylistHead {
+  height: fit-content;
+  margin-bottom: 0.5rem;
+}
+.currentPlaylistHeadForm {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+#currentPlaylist {
+  height: 95%;
+  position: relative;
+  overflow-y: scroll;
+  box-sizing: border-box;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                           Playlist Song Container                          */
+/* -------------------------------------------------------------------------- */
+
+#playlistsList {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-y: scroll;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.playlistsItems {
+  position: relative;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 0.5rem;
+  border-radius: 0.3rem;
+  width: 100%;
+  height: 3rem;
+  background-color: var(--primary-button-bg);
+  color: var(--primary-button-text);
+  transition: all 300ms ease;
+  cursor: pointer;
+  box-sizing: border-box;
+  margin-bottom: 0.5rem;
+}
+.playlistItems-Action {
+  display: flex;
+  justify-content: space-between;
+  width: 9rem;
+}
+.playlistItems-Action > button {
+  border: none;
+  margin: auto;
+  padding: 0.2rem 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--accent-bg);
+  color: var(--accent-button-text);
+  /* border-radius: 50%; */
+  transition: all 300ms ease;
+}
+
+.playlistItems-Action > button:hover {
+  background-color: var(--accent-highlight);
+}
+.playlistsItems:hover {
+  /* background-color: var(--accent-bg);
+    color: var(--secondary-text); */
+  background-color: var(--other-button-bg);
+  color: var(--other-button-text);
+}
+.allPlaylistHeaderContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  position: relative;
+}
+
+.playlist {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#newPlaylistName, #playlistSerchInput{
+    height: 1.6rem;
+    border: none;
+    border-radius: 0.8rem;
+    color: var(--primary-button-text);
+    background-color: var(--primary-button-bg);
+    box-sizing: border-box;
+    text-align: center;
+    margin-right: 0.8rem;
+}
+#createPlaylist{
+    border: none;
+    height: 1.6rem;
+    margin: auto;
+    text-align: center;
+    border-radius: 0.3rem;
+    background-color: var(--accent-button-bg);
+    color: var(--accent-button-text);
+    font-weight: 500;
+}
+/* -------------------------------------------------------------------------- */
+/*                                common class                                */
+/* -------------------------------------------------------------------------- */
+.containerC {
+  margin-top: 5vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  height: var(--container-height);
+  box-sizing: border-box;
+}
+
+.all-songs,
+.song-card,
+.playlist {
+  width: 31.5%;
+  padding: 1rem;
+  border: 1px solid var(--primary-border);
+  border-radius: 1rem;
+  background-color: var(--primary-bg);
+  box-sizing: border-box;
+  height: var(--container-height);
+  overflow-y: scroll;
+}
+.all-songs::-webkit-scrollbar,
+.song-card::-webkit-scrollbar,
+.playlist::-webkit-scrollbar,
+#currentPlaylist::-webkit-scrollbar,
+#playlistsList::-webkit-scrollbar {
+  display: none;
+}
+.displayNone {
+  display: none !important;
+}
