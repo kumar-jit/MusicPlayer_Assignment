@@ -59,6 +59,14 @@ const songs = [
     genre: "rock",
     audio: "./assets/media/taki-taki.mp3",
   },
+  {
+    id: 8,
+    name: "Perfect",
+    artist: "Ed Sharen",
+    img: "./assets/images/perfect.jpeg",
+    genre: "pop",
+    audio: "./assets/media/perfect.mp3",
+  },
 ];
 
 const customPlaylist = {};
